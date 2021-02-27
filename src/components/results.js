@@ -1,24 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
-const Results = () => {
-  const [info, setInfo] = useState('')
-
-  const url = 'https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp'
-
-  const getAllInfo = () => {
-    axios.get(`${url}past`)
-    .then((response) => {
-      const allInfo = response.data.info.allInfo;
-      setInfo(allInfo);
-    })
-    .catch(error => console.error(`Error: ${error}`));
-  }
-
-  useEffect (() => {
-    getAllInfo();
-  }, []);
-
+const Results = ({data}) => {
   return (
     <div className="results">
       <div className="results__col">
