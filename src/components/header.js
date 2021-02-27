@@ -2,17 +2,27 @@ import React, { useState } from 'react'
 import Results from './results'
 import iconArrow from '../images/icon-arrow.svg'
 
-const Header = ({data, setIpLookup}) => {
-  
-  const [searchValue, setSearchValue] = useState('')
+const Header = ({data, setQuery}) => {  
+  const [value, setValue] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = e => {
-    setSearchValue(e.target.value)
+    setValue(e.target.value)
   }
 
   const handleClick = () => {
-    setIpLookup(searchValue)
-    return true
+    if (
+      /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
+        value
+      )
+    ) {
+      setErrorMsg('')
+      setQuery(value)
+      return true
+    }
+    setErrorMsg(`${value} is not a correct ip address`)
+    setValue('')
+    return false
   }
 
   return (
@@ -22,7 +32,7 @@ const Header = ({data, setIpLookup}) => {
 
         <div className='search-box'>
           <input  
-            value={searchValue}
+            value={value}
             onChange={handleChange}        
             placeholder='Search for any IP address or domain'
             aria-labelledby='search'          
@@ -35,6 +45,12 @@ const Header = ({data, setIpLookup}) => {
             <img src={iconArrow} alt='Search Button' />
           </button>
         </div>
+
+        {errorMsg && (
+          <span className='error'>
+            {errorMsg}            
+          </span>
+        )}
 
         <Results data={data}/>
       </div>

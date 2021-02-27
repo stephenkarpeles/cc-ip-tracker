@@ -4,11 +4,11 @@ import axios from 'axios'
 const Info = ipAddress => {
   const [data, setData] = useState()
 
-  const url = 'https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp'
+  const URL = 'https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp'
 
-  if (ipAddress) {
-    url = `https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp&ipAddress=${ipAddress}`
-  }
+  // if (ipAddress) {
+  //   URL = `https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp&ipAddress=${ipAddress}`
+  // }
 
   const getApi = async url => {
     const { data } = await axios.get(url)
@@ -23,8 +23,8 @@ const Info = ipAddress => {
   }
 
   useEffect(() => {
-    getApi(url)
-  }, [url])
+    getApi(URL)
+  }, [URL])
 
   return data
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
+
 import markerIcon from '../images/icon-location.svg'
 
 const Map = ({data}) => {

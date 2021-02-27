@@ -5,13 +5,12 @@ import Map from './components/map'
 import Info from './components/info'
 
 function App() {
-  const [ipLookup, setIpLookup] = useState('')
-
-  const data = Info(ipLookup)
+  const [query, setQuery] = useState('')
+  const data = Info(query)
 
   return (
     <div className="App">
-      <Header data={data} setIpLookup={setIpLookup}/>
+      <Header data={data} setQuery={setQuery}/>
       <Map data={data}/>
     </div>
   );
