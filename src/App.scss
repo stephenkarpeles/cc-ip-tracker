@@ -2,6 +2,10 @@
 $very-dark-gray: hsl(0, 0%, 17%);
 $dark-gray: hsl(0, 0%, 59%);
 $mid-gray: #3c3c3c;
+$light-gray: #e9e9e9;
+
+$container-width: 92%;
+$container-max-width: 920px;
 
 // Responsive Breakpoints
 $breakpoints: (
@@ -74,8 +78,8 @@ h6 {
 
 // Layout
 .container {
-  max-width: 920px;
-  width: 92%;
+  max-width: $container-max-width;
+  width: $container-width;
   margin: 0 auto;
 }
 
@@ -94,12 +98,12 @@ h6 {
 }
 
 .search-box {
-  margin: 20px auto 10px;
+  margin: 20px auto 45px;
   width: 465px;
 
   input {
     background: white;
-    border-radius: 10px 0 0 10px;
+    border-radius: 16px 0 0 16px;
     border: none;
     line-height: 1;
     width: calc(100% - 50px);
@@ -117,7 +121,7 @@ h6 {
     width: 50px;
     height: 50px;
     line-height: 1;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 16px 16px 0;
     background: $very-dark-gray;
     color: white;
     border: none;
@@ -130,5 +134,57 @@ h6 {
     &:active {
       background: $mid-gray;
     }
+  }
+}
+
+// Results 
+.results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  max-width: $container-max-width;
+  width: $container-width;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, .2);
+
+  &__col {
+    padding: 0 30px;
+    position: relative;
+    width: 25%;
+
+    &:last-of-type {
+      &::after {
+        display: none;
+      }
+    }
+
+    &::after {
+      width: 1px;
+      height: 64px;
+      content: '';
+      position: absolute;
+      background: $light-gray;
+      right: 0;
+      top: 8px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $dark-gray;
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  &__value {
+    font-weight: 500;
+    font-size: 20px;
   }
 }

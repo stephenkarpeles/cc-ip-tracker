@@ -17,9 +17,10 @@ const Header = ({data}) => {
 
   return (
     <div className="header">
-      <h1>IP Address Tracker</h1>
+      <div className="container">
+        <h1>IP Address Tracker</h1>
 
-      <div className='search-box'>
+        <div className='search-box'>
         <input  
           value={searchValue}
           onChange={handleChange}        
@@ -35,7 +36,8 @@ const Header = ({data}) => {
         </button>
       </div>
 
-      <Results data={data}/>
+        <Results data={data}/>
+      </div>
     </div>
   )
 }
