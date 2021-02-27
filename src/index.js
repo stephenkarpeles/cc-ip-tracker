@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import WebFontLoader from 'webfontloader'
+
+WebFontLoader.load({
+  google: {
+    families: [
+      'Rubik:400,700:latin-ext',
+    ]
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
