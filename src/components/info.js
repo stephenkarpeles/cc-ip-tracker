@@ -14,11 +14,11 @@ const Info = ipAddress => {
     const { data } = await axios.get(url)
     setData({
       ip: data.ip,
-      location: data.location.city,
-      timezone: data.location.timezone,
       lat: data.location.lat,
       long: data.location.lng,
       isp: data.isp,
+      timezone: data.location.timezone,
+      location: data.location.city,   
     })
   }
 

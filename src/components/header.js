@@ -3,15 +3,15 @@ import Results from './results'
 import iconArrow from '../images/icon-arrow.svg'
 
 const Header = ({data, setIpLookup}) => {
-
+  
   const [searchValue, setSearchValue] = useState('')
 
   const handleChange = e => {
     setSearchValue(e.target.value)
   }
 
-   const handleClick = () => {
-    setIpLookup(value)
+  const handleClick = () => {
+    setIpLookup(searchValue)
     return true
   }
 
@@ -21,20 +21,20 @@ const Header = ({data, setIpLookup}) => {
         <h1>IP Address Tracker</h1>
 
         <div className='search-box'>
-        <input  
-          value={searchValue}
-          onChange={handleChange}        
-          placeholder='Search for any IP address or domain'
-          aria-labelledby='search'          
-          aria-label='Search for any IP address or domain'
-          type='text'
-          name='search'          
-        />
+          <input  
+            value={searchValue}
+            onChange={handleChange}        
+            placeholder='Search for any IP address or domain'
+            aria-labelledby='search'          
+            aria-label='Search for any IP address or domain'
+            type='text'
+            name='search'          
+          />
 
-        <button className='search-box__btn' onClick={handleClick}>
-          <img src={iconArrow} alt='Search Button' />
-        </button>
-      </div>
+          <button className='search-box__btn' onClick={handleClick}>
+            <img src={iconArrow} alt='Search Button' />
+          </button>
+        </div>
 
         <Results data={data}/>
       </div>
