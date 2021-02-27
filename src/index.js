@@ -8,7 +8,7 @@ import WebFontLoader from 'webfontloader'
 WebFontLoader.load({
   google: {
     families: [
-      'Rubik:400,700:latin-ext',
+      'Rubik:400,500,700:latin-ext',
     ]
   }
 })

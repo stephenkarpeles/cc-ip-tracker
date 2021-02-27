@@ -2,6 +2,46 @@
 $very-dark-gray: hsl(0, 0%, 17%);
 $dark-gray: hsl(0, 0%, 59%);
 
+// Responsive Breakpoints
+$breakpoints: (
+  mobile: 375px,
+  desktop: 1440px
+);
+
+@mixin mq($breakpoint, $rule:min-width) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $rule == 'max-width' {
+    $value: $value - 1;
+  }
+
+  @if $value != null {
+    @media screen and ($rule: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-max($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint) - 1;
+
+  @if $value != null {
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-range($breakpoint1, $breakpoint2) {
+  $min-value: map-get($breakpoints, $breakpoint1);
+  $max-value: map-get($breakpoints, $breakpoint2) - 1;
+
+  @if $min-value != null and $max-value != null {
+    @media screen and (min-width: $min-value) and (max-width: $max-value) {
+      @content;
+    }
+  }
+}
 
 // General
 body {
@@ -22,4 +62,11 @@ h5,
 h6 {
   margin: 0;
   padding-bottom: 1.25rem;
+}
+
+// Header 
+.header {
+  @include mq(desktop, 'max-width') {
+    background: red;
+  }
 }
