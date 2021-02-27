@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import Results from './results'
 import iconArrow from '../images/icon-arrow.svg'
 
-const Header = () => {
+const Header = ({data}) => {
 
   const [searchValue, setSearchValue] = useState('')
 
@@ -33,6 +34,8 @@ const Header = () => {
           <img src={iconArrow} alt='Search Button' />
         </button>
       </div>
+
+      <Results data={data}/>
     </div>
   )
 }
