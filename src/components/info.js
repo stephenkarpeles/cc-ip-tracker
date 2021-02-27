@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from 'react'
+import Axios from 'axios'
 
 const Info = ipAddress => {
   const [data, setData] = useState()
 
-  const URL = 'https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp'
+  let URL = 'https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp'
 
-  // if (ipAddress) {
-  //   URL = `https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp&ipAddress=${ipAddress}`
-  // }
+  if (ipAddress) {
+    URL = `https://geo.ipify.org/api/v1?apiKey=at_G1U45uIhXypSzmc2JkrjzHg1VsDzp&ipAddress=${ipAddress}`
+  }
 
   const getApi = async url => {
-    const { data } = await axios.get(url)
+    const { data } = await Axios.get(url)
     setData({
       ip: data.ip,
       lat: data.location.lat,

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
-
 import markerIcon from '../images/icon-location.svg'
 
-const Map = ({data}) => {
+const MapBlock = ({ data }) => {
   const [position, setPosition] = useState([51.505, -0.09])
 
   const locationIcon = new Icon({
     iconUrl: markerIcon,
-    iconSize: [30, 40],
+    iconSize: [40, 40],
   })
 
   useEffect(() => {
@@ -23,8 +22,8 @@ const Map = ({data}) => {
   }
 
   return (
-    <div className="map-wrapper">
-      <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+    <div id="map-wrapper">
+      <MapContainer center={position} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -39,4 +38,4 @@ const Map = ({data}) => {
   )
 }
 
-export default Map
+export default MapBlock

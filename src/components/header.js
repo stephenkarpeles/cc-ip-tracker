@@ -4,25 +4,14 @@ import iconArrow from '../images/icon-arrow.svg'
 
 const Header = ({data, setQuery}) => {  
   const [value, setValue] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = e => {
     setValue(e.target.value)
   }
 
-  const handleClick = () => {
-    if (
-      /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
-        value
-      )
-    ) {
-      setErrorMsg('')
-      setQuery(value)
-      return true
-    }
-    setErrorMsg(`${value} is not a correct ip address`)
-    setValue('')
-    return false
+  const handleClick = () => {    
+    setQuery(value)
+    return true
   }
 
   return (
@@ -45,12 +34,6 @@ const Header = ({data, setQuery}) => {
             <img src={iconArrow} alt='Search Button' />
           </button>
         </div>
-
-        {errorMsg && (
-          <span className='error'>
-            {errorMsg}            
-          </span>
-        )}
 
         <Results data={data}/>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.scss';
 import Header from './components/header'
-import Map from './components/map'
+import MapBlock from './components/map-block'
 import Info from './components/info'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header data={data} setQuery={setQuery}/>
-      <Map data={data}/>
+      <MapBlock data={data}/>
     </div>
   );
 }
