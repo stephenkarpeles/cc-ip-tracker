@@ -1,8 +1,18 @@
 import React, { useState } from 'react'
+import iconArrow from '../images/icon-arrow.svg'
 
 const Header = () => {
 
   const [searchValue, setSearchValue] = useState('')
+
+  const handleChange = e => {
+    setSearchValue(e.target.value)
+  }
+
+   const handleClick = () => {
+    setSearchValue('')
+    return false
+  }
 
   return (
     <div className="header">
@@ -20,7 +30,7 @@ const Header = () => {
         />
 
         <button className='search-box__btn' onClick={handleClick}>
-          <img src={require('../images/icon-arrow.svg')} alt='icon arrow' />
+          <img src={iconArrow} alt='Search Button' />
         </button>
       </div>
     </div>
