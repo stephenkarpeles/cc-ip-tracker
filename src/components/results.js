@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Results = ({data}) => {
+const Results = () => {
   return (
     <div className="results">
       <div className="results__col">
@@ -16,8 +16,7 @@ const Results = ({data}) => {
           <span>Location</span>
         </div>
         <div className="results__value">
-          <span>Brooklyn, NY 10001</span>
-          {info}
+          <span>Brooklyn, NY 10001</span>          
         </div>
       </div>  
       <div className="results__col">
