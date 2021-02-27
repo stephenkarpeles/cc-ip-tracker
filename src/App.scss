@@ -61,12 +61,25 @@ h4,
 h5,
 h6 {
   margin: 0;
-  padding-bottom: 1.25rem;
+}
+
+// Layout
+.container {
+  max-width: 920px;
+  width: 92%;
+  margin: 0 auto;
 }
 
 // Header 
 .header {
-  @include mq(desktop, 'max-width') {
-    background: red;
+  background: url('./images/pattern-bg.png');
+  background-size: cover;
+  background-position: center center;
+  padding: 20px 0;
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
   }
 }
