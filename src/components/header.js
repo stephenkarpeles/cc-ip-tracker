@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Results from './results'
 import iconArrow from '../images/icon-arrow.svg'
 
-const Header = ({data}) => {
+const Header = ({data, setIpLookup}) => {
 
   const [searchValue, setSearchValue] = useState('')
 
@@ -11,8 +11,8 @@ const Header = ({data}) => {
   }
 
    const handleClick = () => {
-    setSearchValue('')
-    return false
+    setIpLookup(value)
+    return true
   }
 
   return (

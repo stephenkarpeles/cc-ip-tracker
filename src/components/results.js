@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Results = () => {
+const Results = ({data}) => {
   return (
     <div className="results">
       <div className="results__col">
@@ -8,7 +8,7 @@ const Results = () => {
           <span>IP Address</span>
         </div>
         <div className="results__value">
-          <span>192.192.192.192</span>
+          <span>{data ? data.ip : 'Loading...'}</span>
         </div>
       </div>  
       <div className="results__col">
