@@ -5,13 +5,13 @@ import MapBlock from './components/map-block'
 import Info from './components/info'
 
 function App() {
-  const [query, setQuery] = useState('')
-  const data = Info(query)
+  const [ipLookup, setIpLookup] = useState('')
+  const data = Info(ipLookup)
 
   return (
     <div className="App">
-      <Header data={data} setQuery={setQuery}/>
-      <MapBlock data={data} setQuery={setQuery}/>
+      <Header data={data} setIpLookup={setIpLookup}/>
+      <MapBlock data={data} setIpLookup={setIpLookup}/>
     </div>
   );
 }
