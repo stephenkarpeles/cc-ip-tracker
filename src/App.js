@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header data={data} setQuery={setQuery}/>
-      <MapBlock data={data}/>
+      <MapBlock data={data} setQuery={setQuery}/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import markerIcon from '../images/icon-location.svg'
 
@@ -23,7 +23,7 @@ const MapBlock = ({ data }) => {
 
   return (
     <div id="map-wrapper">
-      <MapContainer center={position} zoom={13}>
+      <Map center={position} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -33,7 +33,7 @@ const MapBlock = ({ data }) => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-      </MapContainer>
+      </Map>
     </div>
   )
 }
